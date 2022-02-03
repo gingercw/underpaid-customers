@@ -25,11 +25,13 @@ def find_pay_differences(customer_orders):
         payment = float(words[3])
 
         #calculate how much the customer should have paid
-        expected_payment = melons_purchased * melon_cost
+        expected_payment = melons_purchased * MELON_COST
 
         #find the customers who didn't pay what was expected and format as a sentence
-        if expected_payment != payment:
-            print(f"{first_name} paid ${payment:.2f},", f"expected ${expected_payment:.2f}")
+        if expected_payment > payment:
+            print(f"{first_name} underpaid for their melons. They paid ${payment:.2f},", f"and expected payment is ${expected_payment:.2f}.")
+        elif expected_payment < payment:
+            print(f"{first_name} overpaid for their melons. They paid ${payment:.2f},", f"and expected payment is ${expected_payment:.2f}.")
     
 
 orders = open("customer-orders.txt")
