@@ -1,6 +1,4 @@
-"""The program should go through the customer orders file and find customers who didn't pay what was expected. The output should be formatted in this manner: 
-Sean paid $9.50, expected $9.00
-Ashley paid $2.00, expected $3.00"""
+"""The program should go through the customer orders file and find customers who overpaid or underpaid."""
 
 #state how much a melon costs
 MELON_COST = 1.00
