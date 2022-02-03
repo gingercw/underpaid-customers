@@ -6,9 +6,10 @@ MELON_COST = 1.00
 #create function
 def find_pay_differences(customer_orders):
     
+    orders = open(customer_orders)
     
     #go though each line in the file
-    for line in customer_orders:
+    for line in orders:
         #remove extra spaces and punctuation from line and make it a list
         line = line.rstrip()
         words = line.split("|")
@@ -30,8 +31,8 @@ def find_pay_differences(customer_orders):
             print(f"{first_name} underpaid for their melons. They paid ${payment:.2f},", f"and expected payment is ${expected_payment:.2f}.")
         elif expected_payment < payment:
             print(f"{first_name} overpaid for their melons. They paid ${payment:.2f},", f"and expected payment is ${expected_payment:.2f}.")
-    
+    orders.close()
 
-orders = open("customer-orders.txt")
-find_pay_differences(orders)
-orders.close()
+
+find_pay_differences("customer-orders.txt")
+
